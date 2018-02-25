@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="content-scale=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="styles.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+  </head>
+  <body>
+    <div id="app-wrapper">
+
+
+
+    </div>
+    <script id="stock-template" type="text/x-handlebars-template">
+      <div class="container">
+        <section>
+          <table  class="card" width="100%" cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Price</th>
+                <th>Last Update</th>
+                <th>Trend</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each this}}
+              <tr>
+                <td class="ticker">{{@key}}</td>
+                <td>
+                  {{{priceHelper this}}}</td>
+                <td class="updated">{{dateHelper this}}</td>
+                <td>
+                  <span class="line">{{sparkline this}}</span>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </script>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script type="text/javascript" src="node_modules/peity/jquery.peity.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
